@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Web JSON — API Response Viewer</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="brand-icon">{ }</span><span>Web<span class="accent">JSON</span><small>API RESPONSE TOOL</small></span></a><span class="badge"><i></i> READY</span></header>
+  <main class="wrap">
+    <section class="intro"><div class="eyebrow">UNIVERSAL API TOOL</div><h1>Fetch anything.<br><span class="gradient">Keep the full response.</span></h1><p>Inspect JSON, JavaScript, HTML, plain text and more. Download the complete response in one tap.</p></section>
+    <section class="panel request-panel">
+      <div class="section-title"><span class="number">01</span><div><h2>Request</h2><p>Enter an API endpoint to get started</p></div></div>
+      <label for="url">API URL</label><div class="url-row"><select id="method" aria-label="HTTP method"><option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option><option>HEAD</option><option>OPTIONS</option></select><input id="url" type="url" placeholder="https://api.example.com/data" autocomplete="url" spellcheck="false"><button id="fetchBtn" class="primary">Fetch <span>↗</span></button></div>
+      <div class="advanced"><label class="check-label"><input id="showAdvanced" type="checkbox"> Headers &amp; body <span>Optional</span></label></div>
+      <div id="advancedFields" class="advanced-fields hidden"><div class="field-grid"><div><label for="headers">Request headers <small>JSON object</small></label><textarea id="headers" rows="4" spellcheck="false" placeholder='{
+  "Authorization": "Bearer YOUR_TOKEN",
+  "Accept": "application/json"
+}'></textarea></div><div><label for="body">Request body <small>POST / PUT / PATCH</small></label><textarea id="body" rows="4" spellcheck="false" placeholder='{ "key": "value" }'></textarea></div></div><p class="hint">Headers are sent only for this request and are not saved. Never share a public deployment while entering sensitive tokens.</p></div>
+      <div id="error" class="error hidden" role="alert"></div>
+    </section>
+    <section id="responsePanel" class="panel response-panel hidden">
+      <div class="response-head"><div class="section-title"><span class="number">02</span><div><h2>Response</h2><p id="responseSubtitle">Complete response body</p></div></div><div class="response-actions"><button id="copyBtn" class="secondary">▣ Copy</button><button id="downloadBtn" class="primary">↓ TXT</button></div></div>
+      <div class="stats"><div><span>Status</span><strong id="status">—</strong></div><div><span>Time</span><strong id="time">—</strong></div><div><span>Size</span><strong id="size">—</strong></div><div><span>Type</span><strong id="type">—</strong></div></div>
+      <div class="tabs"><button class="tab active" data-tab="body">Body</button><button class="tab" data-tab="headers">Response headers</button><span id="formatLabel">RAW TEXT</span></div>
+      <pre id="responseBody" class="response-body" tabindex="0"><code></code></pre><pre id="responseHeaders" class="response-body hidden" tabindex="0"><code></code></pre>
+      <div class="response-foot"><span>● Full response preserved</span><span id="charCount">0 characters</span></div>
+    </section>
+    <footer>Made for long responses · JSON · JS · HTML · TXT</footer>
+  </main>
+  <script src="/script.js"></script>
+</body></html>
